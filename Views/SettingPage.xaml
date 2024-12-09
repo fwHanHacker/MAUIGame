@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Games.Views.SettingPage"
+             BackgroundColor="Black">
+    
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <!-- 顶部导航栏 -->
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Margin="0,0,0,20">
+            <Button 
+                Grid.Column="0"
+                Text="返回"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                FontSize="18"
+                Clicked="OnBackClicked"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"/>
+            
+            <Label 
+                Grid.Column="1"
+                Text="设置"
+                TextColor="White"
+                FontSize="24"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"/>
+        </Grid>
+
+        <!-- 主要内容区域：两列布局 -->
+        <Grid Grid.Row="1" 
+              ColumnDefinitions="*, 20, *">
+            
+            <!-- 左侧：游戏设置 -->
+            <StackLayout Grid.Column="0" Spacing="15">
+                <Label 
+                    Text="游戏设置"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+                
+                <Grid ColumnDefinitions="*,Auto">
+                    <Label 
+                        Text="背景音乐"
+                        TextColor="White"
+                        FontSize="18"
+                        VerticalOptions="Center"/>
+                    <Switch 
+                        x:Name="MusicSwitch"
+                        Grid.Column="1"
+                        IsToggled="True"
+                        Toggled="OnMusicToggled"
+                        OnColor="{StaticResource Primary}"/>
+                </Grid>
+
+                <Button 
+                    Text="重置游戏"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="OnResetClicked"
+                    Margin="0,5"/>
+
+                <Button 
+                    Text="返回主菜单"
+                    BackgroundColor="DarkBlue"
+                    TextColor="White"
+                    Clicked="OnReturnToMainClicked"/>
+            </StackLayout>
+
+            <!-- 右侧：关于信息 -->
+            <StackLayout Grid.Column="2" Spacing="15">
+                <Label 
+                    Text="关于"
+                    TextColor="White"
+                    FontSize="20"
+                    FontAttributes="Bold"/>
+                <Label 
+                    Text="设计者：韩基烨（师傅）、刘承裕（徒弟）"
+                    TextColor="LightGray"
+                    FontSize="16"/>
+                <Label 
+                    Text="版本：1.0.0"
+                    TextColor="LightGray"
+                    FontSize="16"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

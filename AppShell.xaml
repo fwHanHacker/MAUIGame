@@ -3,11 +3,27 @@
     x:Class="Games.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Games"
+    xmlns:views="clr-namespace:Games.Views"
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        ContentTemplate="{DataTemplate views:StartGamePage}"
+        Route="StartGamePage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:Room1Wall1}"
+        Route="Room1Wall1" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:SettingPage}"
+        Route="SettingPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:Room1Wall2}"
+        Route="Room1Wall2" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:Room1Wall3}"
+        Route="Room1Wall3" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:Room1Wall4}"
+        Route="Room1Wall4" />
+
 
 </Shell>

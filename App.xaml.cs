@@ -1,13 +1,17 @@
-﻿namespace Games
+﻿using Games.SQL;
+
+namespace Games
 {
     public partial class App : Application
     {
-        public App()
+        public static SettingRepository SettingRepo { get; private set; }
+        public App(SettingRepository repo)
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = (new AppShell());
 
+            SettingRepo = repo;
         }
     }
 }

@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+             x:Class="Games.Views.Room1Wall1"
+             BackgroundColor="Black">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 背景图片，占满第一列 -->
+        <Image
+            x:Name="RoomOneWallImage"
+            Source="roomonewall.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Fill"
+            VerticalOptions="FillAndExpand"
+            Grid.Column="0" />
+        <Button x:Name="LeftButton"
+                Text="◀"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                WidthRequest="40"
+                HeightRequest="40"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="20,0"
+                Opacity="0.8"
+                BackgroundColor="LightGray"
+                CornerRadius="20"
+                Padding="0"
+                Clicked="OnLeftButtonClicked"/>
+
+        <Button x:Name="RightButton"
+                Text="▶"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                WidthRequest="40"
+                HeightRequest="40"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Margin="20,0"
+                Opacity="0.8"
+                BackgroundColor="LightGray"
+                CornerRadius="20"
+                Padding="0"
+                Clicked="OnRightButtonClicked"/>
+        <!-- 以下使用Grid.Row和Grid.Column来模拟之前绝对布局中图片的位置关系 -->
+        <Grid Grid.Column="0" Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- 模拟之前位于中心的cabinet.png图片 -->
+
+            <Image
+                Source="under_cabinet.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="153"  
+                HeightRequest="120"
+                Grid.Row="0"
+                Grid.Column="1" 
+                 Margin="13,223,0,0"/>
+            <Image
+                Source="cabinet.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="180"  
+                HeightRequest="180"
+                Grid.Row="0"
+                Grid.Column="1" 
+                 Margin="0,60,40,0"/>
+
+
+            <!-- 模拟bloodone.png图片 -->
+            <Image
+                Source="bloodone.png"
+                Aspect="AspectFit"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                WidthRequest="90" 
+                HeightRequest="90"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,400,0,0" />
+
+            <!-- 模拟bloodthree.png图片 -->
+            <Image
+                Source="bloodthree.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                WidthRequest="90" 
+                HeightRequest="90"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,160,0,0" />
+
+            <!-- 模拟bloodfour.png图片 -->
+            <Image
+                Source="bloodfour.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                WidthRequest="100" 
+                HeightRequest="100"
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="110,160,0,0" />
+
+            <!-- 模拟pictureframe.png图片 -->
+            <Image
+                Source="pictureframe.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="80" 
+                HeightRequest="100"
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="0,50,210,0" />
+
+            <!-- 模拟desk.png图片 -->
+            <Image
+                Source="desk.png"
+                Aspect="Fill"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="250" 
+                HeightRequest="220"
+                Grid.Row="6"
+                Grid.Column="2"
+                Margin="0,0,0,0"/>
+            <Image
+                Source="box.png"
+                Aspect="AspectFit"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                WidthRequest="50"  
+                HeightRequest="20"
+                Grid.Row="0"
+                Grid.Column="2" 
+                 Margin="0,227,120,0"/>
+
+            <Image
+                Source="frame.png"
+                Aspect="AspectFit"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                WidthRequest="50"  
+                HeightRequest="50"
+                Grid.Row="0"
+                Grid.Column="2" 
+                 Margin="70,200,70,0"/>
+
+            <Image
+                Source="post.png"
+                Aspect="AspectFit"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                WidthRequest="80"  
+                HeightRequest="70"
+                Grid.Row="0"
+                Grid.Column="2" 
+                 Margin="0,64.3,230,0"/>
+            <!-- 模拟bloodhidden.png图片 -->
+            <Image
+                Source="bloodhidden.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                WidthRequest="90" 
+                HeightRequest="90"
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="40,0,0,0" />
+            <Image
+                Source="page.png"
+                Aspect="AspectFill"
+                HorizontalOptions="Start"
+                VerticalOptions="End"
+                WidthRequest="50"
+                HeightRequest="50"
+                Grid.Row="6"
+                Grid.Column="0"
+                Margin="50,0,0,20" />
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image
+                x:Name="SettingImage"
+                Source="setting.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="4"
+                WidthRequest="30"
+                HeightRequest="30"
+                Grid.Row="0" />
+
+            <!-- 使用StackLayout来放置多个inventory.png图片，模拟之前在右下方的布局 -->
+            <StackLayout
+                Orientation="Vertical"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Spacing="15"
+                Margin="20,40,20,20">
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>
