@@ -10,16 +10,34 @@ public partial class SettingPage : ContentPage
 	{
 		InitializeComponent();
 		_settingRepo = App.SettingRepo;
-		InitializeSettings();
 	}
 
-	private async void InitializeSettings()
+	protected override async void OnAppearing()
 	{
-		// 从设置中读取音乐状态
-		var setting = await _settingRepo.GetSettingById(1);
-		if (setting != null)
+		base.OnAppearing();
+		
+		// 初始化设置
+		await InitializeSettings();
+		
+		// 淡入显示页面
+		await this.FadeTo(1, 500);
+	}
+
+	private async Task InitializeSettings()
+	{
+		try
 		{
-			MusicSwitch.IsToggled = setting.IsMusicEnabled;
+			// 从设置中读取音乐状态
+			var setting = await _settingRepo.GetSettingById(1);
+			if (setting != null)
+			{
+				MusicSwitch.IsToggled = setting.IsMusicEnabled;
+			}
+		}
+		catch (Exception ex)
+		{
+			Console.WriteLine($"初始化设置时出错: {ex.Message}");
+			// 可以在这里添加错误处理逻辑
 		}
 	}
 
@@ -56,10 +74,11 @@ public partial class SettingPage : ContentPage
 
 	public async void OnReturnToMainClicked(object sender, EventArgs e)
 	{
-		bool answer = await DisplayAlert("提示", "确定要返回主菜单吗？", "确定", "取消");
-		if (answer)
-		{
+			// 更新返回页面为StartGamePage
+			await App.SettingRepo.UpdateBackPage(1, "StartGamePage");
+			// 先淡出当前页面
+			await this.FadeTo(0, 500);
+			// 然后导航到主菜单
 			await Shell.Current.GoToAsync("//StartGamePage");
-		}
 	}
 }

@@ -1,5 +1,4 @@
-﻿
-using Games.SQL;
+﻿using Games.SQL;
 
 namespace Games.Views;
 
@@ -9,19 +8,19 @@ public partial class StartGamePage : ContentPage
 	{
 		InitializeComponent();
 
-        InitialBtn();//��ʼ����ť
+        InitialBtn();
     }
 
     public async void InitialBtn()
     {
-        if (!await App.SettingRepo.IsSettingExists(1))//��������ڴ浵���򴴽��浵
+        if (!await App.SettingRepo.IsSettingExists(1))
         {
             await App.SettingRepo.AddNewSetting(1, 0,"StartGamePage");
         }
 
         if (await App.SettingRepo.GetArchiveById(1) == 0)
         {
-            StartGameBtn1();//����浵Ϊ0����Ϊ��һ�δ���Ϸ��ֻ��ʾ��ʼ��Ϸ��ť
+            StartGameBtn1();
         }
         else if (await App.SettingRepo.GetArchiveById(1) == 1)
         {
@@ -35,7 +34,7 @@ public partial class StartGamePage : ContentPage
         await Shell.Current.GoToAsync("//SettingPage");
     }
 
-    public async void OnButtonClicked(object sender, EventArgs e)//�л�����
+    public async void OnButtonClicked(object sender, EventArgs e)
     {
         if (await App.SettingRepo.GetArchiveById(1) == 0)
         {
@@ -104,6 +103,20 @@ public partial class StartGamePage : ContentPage
             grid.Children.Add(stackLayout);
         }
 
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        
+        // 先设置透明度为0
+        this.Opacity = 0;
+        
+        // 初始化按钮
+        InitialBtn();
+        
+        // 然后淡入显示
+        await this.FadeTo(1, 500);
     }
 
 }

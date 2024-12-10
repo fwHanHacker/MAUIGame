@@ -10,7 +10,7 @@ public partial class Room1Wall4 : ContentPage
 	protected override async void OnAppearing()
 	{
 		base.OnAppearing();
-		await this.FadeTo(1, 1000);
+		await this.FadeTo(1, 500);
 	}
 
 	public async void OnLeftButtonClicked(object sender, EventArgs e)
@@ -23,5 +23,11 @@ public partial class Room1Wall4 : ContentPage
 	{
 		await this.FadeTo(0, 500);
 		await Shell.Current.GoToAsync("//Room1Wall2");
+	}
+
+	public async void OnSettingClicked(object sender, EventArgs e)
+	{
+		await App.SettingRepo.UpdateBackPage(1, "Room1Wall4");
+		await Shell.Current.GoToAsync("//SettingPage");
 	}
 }

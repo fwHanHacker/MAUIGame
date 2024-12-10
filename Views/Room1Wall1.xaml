@@ -18,37 +18,51 @@
             HorizontalOptions="Fill"
             VerticalOptions="FillAndExpand"
             Grid.Column="0" />
-        <Button x:Name="LeftButton"
-                Text="◀"
-                FontSize="24"
-                FontAttributes="Bold"
-                TextColor="Black"
-                WidthRequest="40"
-                HeightRequest="40"
-                HorizontalOptions="Start"
-                VerticalOptions="Center"
-                Margin="20,0"
-                Opacity="0.8"
-                BackgroundColor="LightGray"
-                CornerRadius="20"
-                Padding="0"
-                Clicked="OnLeftButtonClicked"/>
+        <Label 
+            x:Name="LeftButton"
+            Text="◀"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="40"
+            HeightRequest="40"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Margin="20,0"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                        Offset="0,0"
+                        Radius="3"
+                        Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnLeftButtonClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
 
-        <Button x:Name="RightButton"
-                Text="▶"
-                FontSize="24"
-                FontAttributes="Bold"
-                TextColor="Black"
-                WidthRequest="40"
-                HeightRequest="40"
-                HorizontalOptions="End"
-                VerticalOptions="Center"
-                Margin="20,0"
-                Opacity="0.8"
-                BackgroundColor="LightGray"
-                CornerRadius="20"
-                Padding="0"
-                Clicked="OnRightButtonClicked"/>
+        <Label 
+            x:Name="RightButton"
+            Text="▶"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="40"
+            HeightRequest="40"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            Margin="20,0"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                        Offset="0,0"
+                        Radius="3"
+                        Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnRightButtonClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
         <!-- 以下使用Grid.Row和Grid.Column来模拟之前绝对布局中图片的位置关系 -->
         <Grid Grid.Column="0" Grid.Row="0">
             <Grid.RowDefinitions>
@@ -218,7 +232,11 @@
                 Margin="4"
                 WidthRequest="30"
                 HeightRequest="30"
-                Grid.Row="0" />
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
 
             <!-- 使用StackLayout来放置多个inventory.png图片，模拟之前在右下方的布局 -->
             <StackLayout
