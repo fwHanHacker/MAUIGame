@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Games.Views.PuzzlePiecesSlove"
+             BackgroundColor="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 背景 -->
+        <Image
+            x:Name="BackgroundImage"
+            Source="riddlebackground.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Fill"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="White"
+            Grid.Column="0">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackgroundTapped"/>
+            </Image.GestureRecognizers>
+        </Image>
+
+        <!-- 拼图区域 -->
+        <Grid Grid.Column="0"
+              HorizontalOptions="Center"
+              VerticalOptions="Center"
+              WidthRequest="400"
+              HeightRequest="340">
+            
+            <!-- 底层完整图片 -->
+            <Image
+                Source="broken_paintings.png"
+                Aspect="Fill"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"/>
+
+            <!-- 可点击的区域 -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="170"/>
+                    <RowDefinition Height="170"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="133"/>
+                    <ColumnDefinition Width="133"/>
+                    <ColumnDefinition Width="133"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- 五个可点击区域 -->
+                <Rectangle x:Name="Piece1" 
+                           Grid.Row="0" Grid.Column="0" 
+                           Fill="Black"
+                           Margin="40,40,0,0"
+                           InputTransparent="False">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPiece1Clicked"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+
+                <Rectangle x:Name="Piece2"
+                           Grid.Row="0" Grid.Column="1" 
+                           Fill="Black"
+                           Margin="0,40,0,0"
+                           InputTransparent="False">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPiece2Clicked"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+
+                <Rectangle x:Name="Piece3"
+                           Grid.Row="0" Grid.Column="2" 
+                           Fill="Black"
+                           Margin="0,40,40,0"
+                           InputTransparent="False">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPiece3Clicked"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+
+                <Rectangle x:Name="Piece4"
+                           Grid.Row="1" Grid.Column="0" 
+                           Fill="Transparent"
+                           Margin="40,0,0,40"
+                           InputTransparent="False">
+                </Rectangle>
+
+                <Rectangle x:Name="Piece5"
+                           Grid.Row="1" Grid.Column="1" 
+                           Fill="Black"
+                           Margin="0,0,0,40"
+                           InputTransparent="False">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPiece5Clicked"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+
+                <Rectangle x:Name="Piece6"
+                           Grid.Row="1" Grid.Column="2" 
+                           Fill="Black"
+                           Margin="0,0,40,40"
+                           InputTransparent="False">
+                    <Rectangle.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnPiece6Clicked"/>
+                    </Rectangle.GestureRecognizers>
+                </Rectangle>
+            </Grid>
+
+            <!-- 分割线 -->
+            <Line X1="133" Y1="40" X2="133" Y2="300" Stroke="Black" StrokeThickness="3"/>
+            <Line X1="266" Y1="40" X2="266" Y2="300" Stroke="Black" StrokeThickness="3"/>
+            <Line X1="40" Y1="170" X2="360" Y2="170" Stroke="Black" StrokeThickness="3"/>
+        </Grid>
+
+        <!-- 导航箭头 -->
+        <Label 
+            Text="◀"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="30"
+            HeightRequest="30"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Grid.Column="0"
+            Margin="20,0"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                        Offset="0,0"
+                        Radius="3"
+                        Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <!-- 右箭头 -->
+        <Label 
+            Text="▶"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="30"
+            HeightRequest="30"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            Grid.Column="0"
+            Margin="20,0"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                Offset="0,0"
+                Radius="3"
+                Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 下箭头 -->
+        <Label 
+            Text="▼"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="30"
+            HeightRequest="30"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Grid.Column="0"
+            Margin="0,0,0,20"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                Offset="0,0"
+                Radius="3"
+                Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <!-- 右侧栏 -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Image
+                x:Name="SettingImage"
+                Source="setting.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="4"
+                WidthRequest="30"
+                HeightRequest="30"
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- 使用StackLayout来放置多个inventory.png图片，模拟之前在右下方的布局 -->
+            <StackLayout
+                x:Name="InventoryLayout"
+                Orientation="Vertical"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Spacing="15"
+                Margin="20,40,20,20">
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+
+        <!-- 提示标签 -->
+        <Label 
+            x:Name="FragmentHintLabel"
+            Text=""
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,50"
+            IsVisible="False"
+            Grid.Column="0"
+            ZIndex="999">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.8"/>
+            </Label.Shadow>
+        </Label>
+
+        <!-- 添加背景点击事件 -->
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnBackgroundTapped"/>
+        </Grid.GestureRecognizers>
+    </Grid>
+</ContentPage>

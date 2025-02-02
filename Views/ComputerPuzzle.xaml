@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Games.Views.ComputerPuzzle"
+             BackgroundColor="Black">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 背景 -->
+        <Image
+            Source="laptop_background.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Fill"
+            VerticalOptions="FillAndExpand"
+            Grid.Column="0" />
+
+      
+            
+            <!-- 背景图片 -->
+            <Image
+                Source="laptop_background.png"
+                Aspect="AspectFill"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"/>
+            
+            <!-- 密码输入区域 -->
+            <VerticalStackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Spacing="25"
+                Margin="-16,100,0,0">
+                
+                <!-- 提示文字 -->
+                <Label 
+                    Text="请输入密码"
+                    TextColor="White"
+                    FontSize="28"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center">
+                    <Label.Shadow>
+                        <Shadow 
+                            Brush="#4CAF50"
+                            Offset="0,0"
+                            Radius="8"
+                            Opacity="0.6"/>
+                    </Label.Shadow>
+                </Label>
+                
+                <!-- 密码输入框 -->
+                <Frame
+                    Padding="5"
+                    CornerRadius="10"
+                    BorderColor="#4CAF50"
+                    BackgroundColor="#1E1E1E"
+                    HasShadow="True">
+                    <Entry 
+                        x:Name="PasswordEntry"
+                        IsPassword="True"
+                        WidthRequest="250"
+                        HeightRequest="45"
+                        TextColor="#4CAF50"
+                        BackgroundColor="Transparent"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontSize="20"
+                        Placeholder="输入密码"
+                        PlaceholderColor="#666666"
+                        MaxLength="20">
+                        <Entry.Shadow>
+                            <Shadow 
+                                Brush="#4CAF50"
+                                Offset="0,0"
+                                Radius="5"
+                                Opacity="0.3"/>
+                        </Entry.Shadow>
+                    </Entry>
+                </Frame>
+                
+                <!-- 确认按钮 -->
+                <Button 
+                    Text="确认"
+                    WidthRequest="120"
+                    HeightRequest="45"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    CornerRadius="22"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    Clicked="OnConfirmClicked">
+                    <Button.Shadow>
+                        <Shadow 
+                            Brush="#4CAF50"
+                            Offset="0,2"
+                            Radius="8"
+                            Opacity="0.5"/>
+                    </Button.Shadow>
+                    <Button.Triggers>
+                        <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                            <Setter Property="Scale" Value="0.95" />
+                        </Trigger>
+                    </Button.Triggers>
+                </Button>
+                
+                <!-- 提示信息 -->
+                <Label 
+                    x:Name="MessageLabel"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    IsVisible="False">
+                    <Label.Shadow>
+                        <Shadow 
+                            Brush="White"
+                            Offset="0,0"
+                            Radius="5"
+                            Opacity="0.5"/>
+                    </Label.Shadow>
+                </Label>
+            </VerticalStackLayout>
+
+        <!-- 导航箭头 -->
+        <Label 
+             Text="◀"
+             FontSize="24"
+             FontAttributes="Bold"
+             TextColor="Black"
+             WidthRequest="40"
+             HeightRequest="40"
+             HorizontalOptions="Start"
+             VerticalOptions="Center"
+             Grid.Column="0"
+             Margin="20,0"
+             Opacity="0.8">
+            <Label.Shadow>
+            <Shadow Brush="White"
+            Offset="0,0"
+              Radius="3"
+              Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 右箭头 -->
+        <Label 
+             Text="▶"
+             FontSize="24"
+             FontAttributes="Bold"
+             TextColor="Black"
+             WidthRequest="40"
+             HeightRequest="40"
+             HorizontalOptions="End"
+             VerticalOptions="Center"
+             Grid.Column="0"
+             Margin="20,0"
+             Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                 Offset="0,0"
+                 Radius="3"
+                 Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 下箭头 -->
+        <Label 
+             Text="▼"
+             FontSize="24"
+             FontAttributes="Bold"
+             TextColor="Black"
+             WidthRequest="40"
+             HeightRequest="40"
+             HorizontalOptions="Center"
+             VerticalOptions="End"
+             Grid.Column="0"
+             Margin="0,0,0,20"
+             Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                 Offset="0,0"
+                 Radius="3"
+                 Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 右侧栏 -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- 设置按钮 -->
+            <Image
+                Source="setting.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="4"
+                WidthRequest="30"
+                HeightRequest="30">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- 物品栏 -->
+            <StackLayout
+                x:Name="InventoryLayout"
+                Orientation="Vertical"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Spacing="15"
+                Margin="20,40,20,20">
+                <!-- 物品栏的5个格子 -->
+                <Image Source="inventory.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" />
+                <Image Source="inventory.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" />
+                <Image Source="inventory.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" />
+                <Image Source="inventory.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" />
+                <Image Source="inventory.png" Aspect="AspectFill" WidthRequest="50" HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

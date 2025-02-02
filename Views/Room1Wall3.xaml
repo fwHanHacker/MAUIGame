@@ -23,8 +23,8 @@
             FontSize="24"
             FontAttributes="Bold"
             TextColor="Black"
-            WidthRequest="40"
-            HeightRequest="40"
+            WidthRequest="30"
+            HeightRequest="30"
             HorizontalOptions="Start"
             VerticalOptions="Center"
             Margin="20,0"
@@ -46,8 +46,8 @@
             FontSize="24"
             FontAttributes="Bold"
             TextColor="Black"
-            WidthRequest="40"
-            HeightRequest="40"
+            WidthRequest="30"
+            HeightRequest="30"
             HorizontalOptions="End"
             VerticalOptions="Center"
             Margin="20,0"
@@ -63,7 +63,7 @@
             </Label.GestureRecognizers>
         </Label>
 
-        <Grid Grid.Column="0" Grid.Row="0">
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -79,7 +79,6 @@
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
 
-            <!-- 模拟之前位于中心的cabinet.png图片 -->
             <Image
                 Source="wall3_bookshelf.png"
                 Aspect="AspectFill"
@@ -90,16 +89,36 @@
                 Grid.Row="6"
                 Grid.Column="0"
                 Margin="0,0,50,20" />
+
+            <Rectangle
+                Fill="Transparent"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="115"
+                HeightRequest="35"
+                Grid.Row="6"
+                Grid.Column="0"
+                Margin="0,0,67,208">
+                <Rectangle.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBookShelfMoveClicked"/>
+                </Rectangle.GestureRecognizers>
+            </Rectangle>
+
             <Image
+                x:Name="SofaPictureFragment"
                 Source="sofa_picture_fragment.png"
                 Aspect="AspectFill"
-                HorizontalOptions="End"
+                HorizontalOptions="Center"
                 VerticalOptions="End"
                 WidthRequest="15"
                 HeightRequest="15"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="75,55,63,130" />
+                Margin="75,55,163,44" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSofaPictureFragmentClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Image
                 Source="sofa.png"
                 Aspect="AspectFill"
@@ -120,7 +139,20 @@
                 Grid.Row="6"
                 Grid.Column="0"
                 Margin="0,0,0,30" />
-
+            <Image
+                Source="wall3_bookshelf_book_move.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                WidthRequest="110"
+                HeightRequest="43"
+                Grid.Row="6"
+                Grid.Column="0"
+                Margin="0,0,68,122" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBookshelfClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -143,8 +175,8 @@
                 </Image.GestureRecognizers>
             </Image>
 
-            <!-- 使用StackLayout来放置多个inventory.png图片，模拟之前在右下方的布局 -->
             <StackLayout
+                x:Name="InventoryLayout"
                 Orientation="Vertical"
                 HorizontalOptions="End"
                 VerticalOptions="End"
@@ -177,5 +209,26 @@
                     HeightRequest="50" />
             </StackLayout>
         </Grid>
-        </Grid>
+
+        <!-- 修改提示文本 Label 的 Margin -->
+        <Label 
+            x:Name="FragmentHintLabel"
+            Text=""
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,50"
+            IsVisible="False"
+            Grid.Column="0"
+            ZIndex="999">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.8"/>
+            </Label.Shadow>
+        </Label>
+    </Grid>
 </ContentPage>

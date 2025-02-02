@@ -43,7 +43,11 @@
                 HeightRequest="250"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="50,0,0,0" />
+                Margin="50,0,0,0" >
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSafeDepositBoxClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Image
                 Source="shelf.png"
                 Aspect="AspectFill"
@@ -63,7 +67,11 @@
                 HeightRequest="40"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="117,0,0,257" />
+                Margin="117,0,0,257">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnShelfBookClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
 
             <Image
                 Source="light_switch.png"
@@ -74,7 +82,11 @@
                 HeightRequest="60"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="170,0,0,40" />
+                Margin="140,0,0,-50">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnLightSwitchClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Image
                 Source="bookcase.png"
                 Aspect="AspectFill"
@@ -94,8 +106,13 @@
                 HeightRequest="50"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="100,180,100,30" />
+                Margin="100,180,100,30">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnScaleClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
             <Image
+                x:Name="ShelfPictureFragment"
                 Source="shelf_picture_fragment.png"
                 Aspect="AspectFill"
                 HorizontalOptions="Start"
@@ -104,7 +121,11 @@
                 HeightRequest="10"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="151,0,10,74" />
+                Margin="151,0,10,74">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnShelfPictureFragmentClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -127,8 +148,9 @@
                 </Image.GestureRecognizers>
             </Image>
 
-            <!-- 使用StackLayout来放置多个inventory.png图片，模拟之前在右下方的布局 -->
+            <!-- 物品栏 -->
             <StackLayout
+                x:Name="InventoryLayout"
                 Orientation="Vertical"
                 HorizontalOptions="End"
                 VerticalOptions="End"
@@ -162,6 +184,27 @@
             </StackLayout>
         </Grid>
 
+        <!-- 添加提示文本 Label -->
+        <Label 
+            x:Name="FragmentHintLabel"
+            Text=""
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,50"
+            IsVisible="False"
+            Grid.Column="0"
+            ZIndex="999">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.8"/>
+            </Label.Shadow>
+        </Label>
+
         <!-- 切换按钮 -->
         <Label 
             x:Name="LeftButton"
@@ -169,8 +212,8 @@
             FontSize="24"
             FontAttributes="Bold"
             TextColor="Black"
-            WidthRequest="40"
-            HeightRequest="40"
+            WidthRequest="30"
+            HeightRequest="30"
             HorizontalOptions="Start"
             VerticalOptions="Center"
             Margin="20,0"
@@ -192,8 +235,8 @@
             FontSize="24"
             FontAttributes="Bold"
             TextColor="Black"
-            WidthRequest="40"
-            HeightRequest="40"
+            WidthRequest="30"
+            HeightRequest="30"
             HorizontalOptions="End"
             VerticalOptions="Center"
             Margin="20,0"

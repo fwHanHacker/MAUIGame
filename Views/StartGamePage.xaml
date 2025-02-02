@@ -10,7 +10,7 @@
             HorizontalOptions="FillAndExpand"
             VerticalOptions="FillAndExpand"/>
         
-        <AbsoluteLayout >
+        <AbsoluteLayout>
             <Image
                 x:Name="SettingImage"
                 Source="setting.png"

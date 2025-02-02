@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Games.Views.MoveBooksPuzzle"
+             BackgroundColor="Black">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <!-- 轴线容器 -->
+        <Grid Grid.Column="0">
+            <!-- 左轴 - 向右移动30个单位 -->
+            <BoxView 
+                Color="Transparent"
+                WidthRequest="2"
+                HeightRequest="300"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="210,0,0,0"/>
+
+            <!-- 中轴 - 向右移动30个单位 -->
+            <BoxView 
+                Color="Transparent"
+                WidthRequest="2"
+                HeightRequest="300"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="360,0,0,0"/>
+
+            <!-- 右轴 - 向右移动30个单位 -->
+            <BoxView 
+                Color="Transparent"
+                WidthRequest="2"
+                HeightRequest="300"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Margin="499,0,0,0"/>
+        </Grid>
+
+        <!-- 背景 -->
+        <Image
+            Source="riddlebackground.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Fill"
+            VerticalOptions="FillAndExpand"
+            Grid.Column="0" />
+
+       
+        <!-- 图片 -->
+        <Image
+            Source="move_books_place.png"
+            Aspect="AspectFill"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            WidthRequest="500"
+            HeightRequest="300"
+            Grid.Column="0"
+            Margin="0,-5,114,0"/>
+        <Image
+            x:Name="Book1"
+            Source="book1.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            WidthRequest="155"
+            HeightRequest="43"
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="130,0,68,92"/>
+
+        <Image
+            x:Name="Book2"
+            Source="book2.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            WidthRequest="120"
+            HeightRequest="29"
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="150,0,138,135"/>
+
+        <Image
+            x:Name="Book3"
+            Source="book3.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            WidthRequest="100"
+            HeightRequest="19"
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="449,0,138,92"/>
+
+        <Image
+            x:Name="Book4"
+            Source="book4.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            WidthRequest="100"
+            HeightRequest="25"
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="310,0,13,92"/>
+
+        <Image
+            x:Name="Book5"
+            Source="book5.png"
+            Aspect="AspectFill"
+            HorizontalOptions="Start"
+            VerticalOptions="End"
+            WidthRequest="90"
+            HeightRequest="29"
+            Grid.Row="6"
+            Grid.Column="0"
+            Margin="315,0,138,117"/>
+        
+        <!-- 导航箭头 -->
+        <Label 
+            Text="◀"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="40"
+            HeightRequest="40"
+            HorizontalOptions="Start"
+            VerticalOptions="Center"
+            Grid.Column="0"
+            Margin="20,0"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                        Offset="0,0"
+                        Radius="3"
+                        Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 右箭头 -->
+        <Label 
+            Text="▶"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="40"
+            HeightRequest="40"
+            HorizontalOptions="End"
+            VerticalOptions="Center"
+            Grid.Column="0"
+            Margin="20,0"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                        Offset="0,0"
+                        Radius="3"
+                        Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 下箭头 -->
+        <Label 
+            Text="▼"
+            FontSize="24"
+            FontAttributes="Bold"
+            TextColor="Black"
+            WidthRequest="40"
+            HeightRequest="40"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Grid.Column="0"
+            Margin="0,0,0,20"
+            Opacity="0.8">
+            <Label.Shadow>
+                <Shadow Brush="White"
+                        Offset="0,0"
+                        Radius="3"
+                        Opacity="1"/>
+            </Label.Shadow>
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnBackClicked"/>
+            </Label.GestureRecognizers>
+        </Label>
+
+        <!-- 右侧栏 -->
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- 设置按钮 -->
+            <Image
+                Source="setting.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="4"
+                WidthRequest="30"
+                HeightRequest="30"
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <!--///////////////////////////////////////////////////////////////////////////////-->
+            <!-- 物品栏 -->
+            <StackLayout
+     x:Name="InventoryLayout"
+     Orientation="Vertical"
+     HorizontalOptions="End"
+     VerticalOptions="End"
+     Spacing="15"
+     Margin="20,40,20,20">
+                <Image
+         Source="inventory.png"
+         Aspect="AspectFill"
+         WidthRequest="50"
+         HeightRequest="50" />
+                <Image
+         Source="inventory.png"
+         Aspect="AspectFill"
+         WidthRequest="50"
+         HeightRequest="50" />
+                <Image
+         Source="inventory.png"
+         Aspect="AspectFill"
+         WidthRequest="50"
+         HeightRequest="50" />
+                <Image
+         Source="inventory.png"
+         Aspect="AspectFill"
+         WidthRequest="50"
+         HeightRequest="50" />
+                <Image
+         Source="inventory.png"
+         Aspect="AspectFill"
+         WidthRequest="50"
+         HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+
+        <!-- 添加提示标签 -->
+        <Label 
+            x:Name="FragmentHintLabel"
+            Text=""
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,50"
+            IsVisible="False"
+            Grid.Column="0"
+            ZIndex="999">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.8"/>
+            </Label.Shadow>
+        </Label>
+
+        <!-- 添加背景点击事件 -->
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnBackgroundTapped"/>
+        </Grid.GestureRecognizers>
+    </Grid>
+</ContentPage>

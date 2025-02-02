@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Games.Views.PaperDisplayPage"
+             BackgroundColor="Black">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 左侧：页面内容和返回按钮 -->
+        <Grid x:Name="LeftGrid" Grid.Column="0">
+            <!-- 纸张背景 -->
+            <Border 
+                BackgroundColor="White"
+                Stroke="#E0E0E0"
+                StrokeThickness="1"
+                Margin="40,20"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                WidthRequest="500"
+                HeightRequest="600"
+                Shadow="{Shadow Offset='5,5', Brush='#40000000'}">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="3"/>
+                </Border.StrokeShape>
+
+                <Grid>
+                    <!-- 纸张纹理线条 -->
+                    <BoxView 
+                        Color="#F8F8F8" 
+                        Opacity="0.5"
+                        HeightRequest="1"
+                        Margin="20,100,20,0"
+                        VerticalOptions="Start"/>
+                    
+                    <!-- 文字内容 -->
+                    <StackLayout 
+                        Margin="30"
+                        VerticalOptions="Center">
+                        <Label 
+                            Text="这是一间密室，"
+                            TextColor="#333333"
+                            FontSize="26"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Margin="0,0,0,10"/>
+                        <Label 
+                            Text="请你想办法逃离"
+                            TextColor="#333333"
+                            FontSize="26"
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            HorizontalTextAlignment="Center"/>
+                    </StackLayout>
+                </Grid>
+            </Border>
+
+            <!-- 向下箭头按钮 -->
+            <Label 
+                x:Name="DownButton"
+                Text="▼"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                WidthRequest="30"
+                HeightRequest="30"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,20"
+                Opacity="0.8">
+                <Label.Shadow>
+                    <Shadow Brush="White"
+                            Offset="0,0"
+                            Radius="3"
+                            Opacity="1"/>
+                </Label.Shadow>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDownButtonClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <!-- 右侧：物品栏 -->
+        <Grid Grid.Column="1" WidthRequest="90">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!-- 设置按钮 -->
+            <Image
+                x:Name="SettingImage"
+                Source="setting.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="4"
+                WidthRequest="30"
+                HeightRequest="30"
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- 物品栏 -->
+            <StackLayout
+                x:Name="InventoryLayout"
+                Grid.Row="1"
+                Orientation="Vertical"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Spacing="15"
+                Margin="10,5,20,20">
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+
+        <!-- 在 Grid 的最后添加提示标签 -->
+        <Label 
+            x:Name="FragmentHintLabel"
+            Text=""
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,50"
+            IsVisible="False"
+            Grid.Column="0"
+            ZIndex="999">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.8"/>
+            </Label.Shadow>
+        </Label>
+    </Grid>
+</ContentPage> 

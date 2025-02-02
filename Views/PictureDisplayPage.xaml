@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Games.Views.PictureDisplayPage"
+             BackgroundColor="Black">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- 左侧：图片展示区域 -->
+        <Grid Grid.Column="0">
+            <!-- 背景图片 -->
+            <Image Source="picture_background.png"
+                   Aspect="Fill"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill"/>
+
+            <!-- 中间的图片组合 -->
+            <Grid x:Name="PictureContainer"
+                  HorizontalOptions="Center"
+                  VerticalOptions="Center"
+                  WidthRequest="330"
+                  HeightRequest="270"
+                  Margin="0,0,0,50">
+
+                <!-- 底层画框 -->
+                
+                <Image
+                    Source="pictureframe.png"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="250"
+                    HeightRequest="350"
+                    Grid.Column="0"
+                    Margin="0,0,30,0"/>
+                <Image x:Name="PostImage"
+                    Source="picture_in_frame.png"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="200"
+                    HeightRequest="270"
+                    Grid.Column="0"
+                    Margin="0,0,30,0"/>
+                
+                <Image x:Name="DrawSymbolImage"
+                    Source="draw_symbol.png"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="200"
+                    HeightRequest="270"
+                    Grid.Column="0"
+                    Margin="0,0,30,0"
+                    Opacity="0"/>
+                <Image x:Name="FragmentImage"
+                    Source="shelf_picture_fragment.png"
+                    Aspect="AspectFill"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    WidthRequest="50"
+                    HeightRequest="50"
+                    Grid.Column="0"
+                    Margin="0,225,185,0">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnFragmentClicked"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+            <Label 
+                Text="◀"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                WidthRequest="30"
+                HeightRequest="30"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Grid.Column="0"
+                Margin="20,0"
+                Opacity="0.8">
+                <Label.Shadow>
+                    <Shadow Brush="White"
+                Offset="0,0"
+                Radius="3"
+                Opacity="1"/>
+                </Label.Shadow>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!-- 右箭头 -->
+            <Label 
+                Text="▶"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                WidthRequest="30"
+                HeightRequest="30"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                Grid.Column="0"
+                Margin="20,0"
+                Opacity="0.8">
+                <Label.Shadow>
+                    <Shadow Brush="White"
+                Offset="0,0"
+                Radius="3"
+                Opacity="1"/>
+                </Label.Shadow>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!-- 下箭头按钮 -->
+            <Label 
+                Text="▼"
+                FontSize="24"
+                FontAttributes="Bold"
+                TextColor="Black"
+                WidthRequest="30"
+                HeightRequest="30"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,20"
+                Opacity="0.8">
+                <Label.Shadow>
+                    <Shadow Brush="White"
+                            Offset="0,0"
+                            Radius="3"
+                            Opacity="1"/>
+                </Label.Shadow>
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBackClicked"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+            <!-- 在 Grid 的最后添加提示标签 -->
+            <Label 
+                x:Name="FragmentHintLabel"
+                Text=""
+                TextColor="White"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,0,0,50"
+                IsVisible="False"
+                Grid.Column="0"
+                ZIndex="999">
+                <Label.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="2,2"
+                            Radius="4"
+                            Opacity="0.8"/>
+                </Label.Shadow>
+            </Label>
+        </Grid>
+
+        <!-- 右侧：物品栏 -->
+        <Grid Grid.Column="1" WidthRequest="90">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <!-- 设置按钮 -->
+            <Image
+                Source="setting.png"
+                Aspect="AspectFill"
+                HorizontalOptions="End"
+                VerticalOptions="Start"
+                Margin="4"
+                WidthRequest="30"
+                HeightRequest="30"
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- 物品栏 -->
+            <StackLayout
+                x:Name="InventoryLayout"
+                Grid.Row="1"
+                Orientation="Vertical"
+                HorizontalOptions="End"
+                VerticalOptions="End"
+                Spacing="15"
+                Margin="10,5,20,20">
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+                <Image
+                    Source="inventory.png"
+                    Aspect="AspectFill"
+                    WidthRequest="50"
+                    HeightRequest="50" />
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage> 

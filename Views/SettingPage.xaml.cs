@@ -1,10 +1,10 @@
-using Games.SQL;
+using Games.Services;
 
 namespace Games.Views;
 
 public partial class SettingPage : ContentPage
 {
-	private readonly SettingRepository _settingRepo;
+	private readonly SettingDatabase _settingRepo;
 	
 	public SettingPage()
 	{
@@ -66,9 +66,26 @@ public partial class SettingPage : ContentPage
 		bool answer = await DisplayAlert("警告", "确定要重置所有游戏进度吗？此操作不可撤销。", "确定", "取消");
 		if (answer)
 		{
-			await _settingRepo.ResetGame(1);
-			await DisplayAlert("提示", "游戏已重置", "确定");
-			await Shell.Current.GoToAsync("//StartGamePage");
+			try
+			{
+				// 重置设置数据
+				await _settingRepo.ResetGame(1);
+				
+				// 清空物品栏数据
+				await App.InventoryRepo.ResetInventoryAsync();
+
+				// 重置游戏状态数据
+				await App.GameStateRepo.ResetGameStatesAsync();
+
+				await DisplayAlert("提示", "游戏已重置", "确定");
+				await this.FadeTo(0, 500);
+				await Shell.Current.GoToAsync("//StartGamePage");
+			}
+			catch (Exception ex)
+			{
+				await DisplayAlert("错误", "重置游戏时出现错误", "确定");
+				Console.WriteLine($"重置游戏时出错: {ex.Message}");
+			}
 		}
 	}
 

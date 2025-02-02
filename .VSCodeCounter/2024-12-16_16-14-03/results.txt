@@ -1,0 +1,115 @@
+Date : 2024-12-16 16:14:03
+Directory : e:\maui\Games
+Total : 70 files,  11754 codes, 599 comments, 1220 blanks, all 13573 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| XML      |         31 |      6,461 |        204 |        298 |      6,963 |
+| C#       |         38 |      5,285 |        395 |        922 |      6,602 |
+| JSON     |          1 |          8 |          0 |          0 |          8 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                        | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                           |         70 |     11,754 |        599 |      1,220 |     13,573 |
+| . (Files)                                                   |          7 |        226 |         16 |         37 |        279 |
+| Data                                                        |          1 |          0 |          0 |          1 |          1 |
+| Models                                                      |          3 |         31 |          0 |          7 |         38 |
+| Platforms                                                   |         12 |        147 |         26 |         24 |        197 |
+| Platforms\Android                                           |          4 |         56 |         11 |          6 |         73 |
+| Platforms\Android (Files)                                   |          3 |         50 |         11 |          6 |         67 |
+| Platforms\Android\Resources                                 |          1 |          6 |          0 |          0 |          6 |
+| Platforms\Android\Resources\values                          |          1 |          6 |          0 |          0 |          6 |
+| Platforms\MacCatalyst                                       |          2 |         21 |          3 |          4 |         28 |
+| Platforms\Tizen                                             |          2 |         30 |          0 |          3 |         33 |
+| Platforms\Windows                                           |          2 |         19 |          9 |          7 |         35 |
+| Platforms\iOS                                               |          2 |         21 |          3 |          4 |         28 |
+| Properties                                                  |          1 |          8 |          0 |          0 |          8 |
+| Resources                                                   |          5 |      2,399 |          1 |         41 |      2,441 |
+| Resources\AppIcon                                           |          2 |        987 |          0 |          1 |        988 |
+| Resources\Splash                                            |          1 |        979 |          0 |          1 |        980 |
+| Resources\Styles                                            |          2 |        433 |          1 |         39 |        473 |
+| Services                                                    |          3 |        255 |          0 |         33 |        288 |
+| Views                                                       |         38 |      8,688 |        556 |      1,077 |     10,321 |
++-------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                    | language | code       | comment    | blank      | total      |
++-------------------------------------------------------------+----------+------------+------------+------------+------------+
+| e:\maui\Games\App.xaml                                      | XML      |         14 |          0 |          1 |         15 |
+| e:\maui\Games\App.xaml.cs                                   | C#       |         19 |          0 |          3 |         22 |
+| e:\maui\Games\AppShell.xaml                                 | XML      |         65 |          0 |          4 |         69 |
+| e:\maui\Games\AppShell.xaml.cs                              | C#       |          8 |          0 |          5 |         13 |
+| e:\maui\Games\Constants.cs                                  | C#       |         11 |          0 |          3 |         14 |
+| e:\maui\Games\Data\InventoryDatabase.cs                     | C#       |          0 |          0 |          1 |          1 |
+| e:\maui\Games\Games.csproj                                  | XML      |         84 |         16 |         17 |        117 |
+| e:\maui\Games\MauiProgram.cs                                | C#       |         25 |          0 |          4 |         29 |
+| e:\maui\Games\Models\GameState.cs                           | C#       |          9 |          0 |          2 |         11 |
+| e:\maui\Games\Models\InventoryItem.cs                       | C#       |          8 |          0 |          1 |          9 |
+| e:\maui\Games\Models\Setting.cs                             | C#       |         14 |          0 |          4 |         18 |
+| e:\maui\Games\Platforms\Android\AndroidManifest.xml         | XML      |         18 |          0 |          0 |         18 |
+| e:\maui\Games\Platforms\Android\MainActivity.cs             | C#       |         18 |         11 |          3 |         32 |
+| e:\maui\Games\Platforms\Android\MainApplication.cs          | C#       |         14 |          0 |          3 |         17 |
+| e:\maui\Games\Platforms\Android\Resources\values\colors.xml | XML      |          6 |          0 |          0 |          6 |
+| e:\maui\Games\Platforms\MacCatalyst\AppDelegate.cs          | C#       |          9 |          0 |          2 |         11 |
+| e:\maui\Games\Platforms\MacCatalyst\Program.cs              | C#       |         12 |          3 |          2 |         17 |
+| e:\maui\Games\Platforms\Tizen\Main.cs                       | C#       |         15 |          0 |          3 |         18 |
+| e:\maui\Games\Platforms\Tizen\tizen-manifest.xml            | XML      |         15 |          0 |          0 |         15 |
+| e:\maui\Games\Platforms\Windows\App.xaml                    | XML      |          7 |          0 |          2 |          9 |
+| e:\maui\Games\Platforms\Windows\App.xaml.cs                 | C#       |         12 |          9 |          5 |         26 |
+| e:\maui\Games\Platforms\iOS\AppDelegate.cs                  | C#       |          9 |          0 |          2 |         11 |
+| e:\maui\Games\Platforms\iOS\Program.cs                      | C#       |         12 |          3 |          2 |         17 |
+| e:\maui\Games\Properties\launchSettings.json                | JSON     |          8 |          0 |          0 |          8 |
+| e:\maui\Games\Resources\AppIcon\appicon.svg                 | XML      |        979 |          0 |          1 |        980 |
+| e:\maui\Games\Resources\AppIcon\appiconfg.svg               | XML      |          8 |          0 |          0 |          8 |
+| e:\maui\Games\Resources\Splash\splash.svg                   | XML      |        979 |          0 |          1 |        980 |
+| e:\maui\Games\Resources\Styles\Colors.xaml                  | XML      |         38 |          1 |          6 |         45 |
+| e:\maui\Games\Resources\Styles\Styles.xaml                  | XML      |        395 |          0 |         33 |        428 |
+| e:\maui\Games\Services\GameStateDatabase.cs                 | C#       |         51 |          0 |          9 |         60 |
+| e:\maui\Games\Services\InventoryDatabase.cs                 | C#       |         51 |          0 |         10 |         61 |
+| e:\maui\Games\Services\SettingDatabase.cs                   | C#       |        153 |          0 |         14 |        167 |
+| e:\maui\Games\Views\BookShelfMove.xaml                      | XML      |        216 |         10 |         17 |        243 |
+| e:\maui\Games\Views\BookShelfMove.xaml.cs                   | C#       |        372 |         48 |         69 |        489 |
+| e:\maui\Games\Views\BoxRiddle.xaml                          | XML      |        236 |         17 |         16 |        269 |
+| e:\maui\Games\Views\BoxRiddle.xaml.cs                       | C#       |        398 |         39 |         69 |        506 |
+| e:\maui\Games\Views\CabinettLeftRiddle.xaml                 | XML      |        179 |          7 |          6 |        192 |
+| e:\maui\Games\Views\CabinettLeftRiddle.xaml.cs              | C#       |        264 |         20 |         45 |        329 |
+| e:\maui\Games\Views\CabinettRightRiddle.xaml                | XML      |        229 |         16 |         12 |        257 |
+| e:\maui\Games\Views\CabinettRightRiddle.xaml.cs             | C#       |        219 |         14 |         43 |        276 |
+| e:\maui\Games\Views\ComputerHintPage.xaml                   | XML      |        116 |          8 |          8 |        132 |
+| e:\maui\Games\Views\ComputerHintPage.xaml.cs                | C#       |        227 |         14 |         34 |        275 |
+| e:\maui\Games\Views\ComputerPuzzle.xaml                     | XML      |        205 |         14 |         15 |        234 |
+| e:\maui\Games\Views\ComputerPuzzle.xaml.cs                  | C#       |         81 |          9 |         15 |        105 |
+| e:\maui\Games\Views\LightSwitchPage.xaml                    | XML      |        154 |          9 |          9 |        172 |
+| e:\maui\Games\Views\LightSwitchPage.xaml.cs                 | C#       |        260 |         17 |         40 |        317 |
+| e:\maui\Games\Views\MoveBooksPuzzle.xaml                    | XML      |        225 |         15 |         17 |        257 |
+| e:\maui\Games\Views\MoveBooksPuzzle.xaml.cs                 | C#       |        567 |         55 |        107 |        729 |
+| e:\maui\Games\Views\PaperDisplayPage.xaml                   | XML      |        152 |          9 |          9 |        170 |
+| e:\maui\Games\Views\PaperDisplayPage.xaml.cs                | C#       |        170 |          6 |         31 |        207 |
+| e:\maui\Games\Views\PictureDisplayPage.xaml                 | XML      |        203 |         10 |         12 |        225 |
+| e:\maui\Games\Views\PictureDisplayPage.xaml.cs              | C#       |        187 |          7 |         32 |        226 |
+| e:\maui\Games\Views\PuzzlePiecesSlove.xaml                  | XML      |        241 |         13 |         16 |        270 |
+| e:\maui\Games\Views\PuzzlePiecesSlove.xaml.cs               | C#       |        274 |          0 |         48 |        322 |
+| e:\maui\Games\Views\Room1Wall1.xaml                         | XML      |        391 |         15 |         25 |        431 |
+| e:\maui\Games\Views\Room1Wall1.xaml.cs                      | C#       |        281 |         13 |         48 |        342 |
+| e:\maui\Games\Views\Room1Wall2.xaml                         | XML      |        242 |          4 |         10 |        256 |
+| e:\maui\Games\Views\Room1Wall2.xaml.cs                      | C#       |        244 |         19 |         44 |        307 |
+| e:\maui\Games\Views\Room1Wall3.xaml                         | XML      |        223 |          1 |         10 |        234 |
+| e:\maui\Games\Views\Room1Wall3.xaml.cs                      | C#       |        235 |         19 |         41 |        295 |
+| e:\maui\Games\Views\Room1Wall4.xaml                         | XML      |        233 |          4 |         12 |        249 |
+| e:\maui\Games\Views\Room1Wall4.xaml.cs                      | C#       |        301 |         35 |         54 |        390 |
+| e:\maui\Games\Views\SafeDepositBox.xaml                     | XML      |        290 |         19 |         17 |        326 |
+| e:\maui\Games\Views\SafeDepositBox.xaml.cs                  | C#       |        253 |         25 |         47 |        325 |
+| e:\maui\Games\Views\ScalePage.xaml                          | XML      |        214 |         12 |         12 |        238 |
+| e:\maui\Games\Views\ScalePage.xaml.cs                       | C#       |        294 |         10 |         47 |        351 |
+| e:\maui\Games\Views\SettingPage.xaml                        | XML      |         75 |          4 |          8 |         87 |
+| e:\maui\Games\Views\SettingPage.xaml.cs                     | C#       |         74 |         13 |         14 |        101 |
+| e:\maui\Games\Views\StartGamePage.xaml                      | XML      |         29 |          0 |          2 |         31 |
+| e:\maui\Games\Views\StartGamePage.xaml.cs                   | C#       |        134 |          6 |         16 |        156 |
+| Total                                                       |          |     11,754 |        599 |      1,220 |     13,573 |
++-------------------------------------------------------------+----------+------------+------------+------------+------------+

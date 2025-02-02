@@ -24,8 +24,8 @@
             FontSize="24"
             FontAttributes="Bold"
             TextColor="Black"
-            WidthRequest="40"
-            HeightRequest="40"
+            WidthRequest="30"
+            HeightRequest="30"
             HorizontalOptions="Start"
             VerticalOptions="Center"
             Margin="20,0"
@@ -47,8 +47,8 @@
             FontSize="24"
             FontAttributes="Bold"
             TextColor="Black"
-            WidthRequest="40"
-            HeightRequest="40"
+            WidthRequest="30"
+            HeightRequest="30"
             HorizontalOptions="End"
             VerticalOptions="Center"
             Margin="20,0"
@@ -92,6 +92,37 @@
                 Grid.Row="0"
                 Grid.Column="1" 
                  Margin="13,223,0,0"/>
+
+            <!-- 左侧点击区域（透明）-->
+            <Rectangle
+                Fill="Transparent"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="54"
+                HeightRequest="70"
+                Grid.Row="0"
+                Grid.Column="1" 
+                Margin="27,240,0,0">
+                <Rectangle.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCabinettLeftClicked"/>
+                </Rectangle.GestureRecognizers>
+            </Rectangle>
+
+            <!-- 右侧点击区域（透明） -->
+            <Rectangle
+                Fill="Transparent"
+                HorizontalOptions="Start"
+                VerticalOptions="Start"
+                WidthRequest="54"
+                HeightRequest="70"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="97,240,0,0">
+                <Rectangle.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCabinettRightClicked"/>
+                </Rectangle.GestureRecognizers>
+            </Rectangle>
+
             <Image
                 Source="cabinet.png"
                 Aspect="AspectFit"
@@ -103,9 +134,39 @@
                 Grid.Column="1" 
                  Margin="0,60,40,0"/>
 
+            <!-- 模拟bloodhidden.png图片 -->
+            <Image
+                x:Name="BloodHidden"
+                Source="bloodhidden.png"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                WidthRequest="90" 
+                HeightRequest="90"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="40,50,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBloodHiddenClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image
+                x:Name="FourSymbol"
+                Source="four_symbol.png"
+                IsVisible="false"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                WidthRequest="50" 
+                HeightRequest="50"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="60,50,0,20" />
 
             <!-- 模拟bloodone.png图片 -->
             <Image
+                x:Name="BloodOne"
                 Source="bloodone.png"
                 Aspect="AspectFit"
                 HorizontalOptions="End"
@@ -114,10 +175,28 @@
                 HeightRequest="90"
                 Grid.Row="0"
                 Grid.Column="0"
-                Margin="0,400,0,0" />
+                Margin="0,300,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBloodOneClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image
+                x:Name="NineSymbol"
+                Source="nine_symbol.png"
+                IsVisible="false"
+                Aspect="AspectFit"
+                HorizontalOptions="End"
+                VerticalOptions="Center"
+                WidthRequest="50" 
+                HeightRequest="50"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,300,10,0" />
 
             <!-- 模拟bloodthree.png图片 -->
             <Image
+                x:Name="BloodThree"
                 Source="bloodthree.png"
                 Aspect="AspectFit"
                 HorizontalOptions="Center"
@@ -126,19 +205,54 @@
                 HeightRequest="90"
                 Grid.Row="0"
                 Grid.Column="1"
-                Margin="0,160,0,0" />
+                Margin="0,160,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBloodThreeClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image
+                x:Name="ThreeSymbol"
+                Source="three_symbol.png"
+                IsVisible="false"
+                Aspect="AspectFit"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                WidthRequest="50" 
+                HeightRequest="50"
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="0,185,0,0" />
 
             <!-- 模拟bloodfour.png图片 -->
             <Image
+                x:Name="BloodFour"
                 Source="bloodfour.png"
                 Aspect="AspectFit"
                 HorizontalOptions="Start"
                 VerticalOptions="Center"
-                WidthRequest="100" 
-                HeightRequest="100"
+                WidthRequest="90" 
+                HeightRequest="90"
                 Grid.Row="0"
                 Grid.Column="2"
-                Margin="110,160,0,0" />
+                Margin="110,160,0,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBloodFourClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Image
+                x:Name="OneSymbol"
+                Source="one_symbol.png"
+                IsVisible="false"
+                Aspect="AspectFit"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                WidthRequest="50" 
+                HeightRequest="50"
+                Grid.Row="0"
+                Grid.Column="2"
+                Margin="120,160,0,0" />
 
             <!-- 模拟pictureframe.png图片 -->
             <Image
@@ -172,7 +286,11 @@
                 HeightRequest="20"
                 Grid.Row="0"
                 Grid.Column="2" 
-                 Margin="0,227,120,0"/>
+                Margin="0,227,120,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnBoxClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
 
             <Image
                 Source="frame.png"
@@ -183,10 +301,15 @@
                 HeightRequest="50"
                 Grid.Row="0"
                 Grid.Column="2" 
-                 Margin="70,200,70,0"/>
+                Margin="70,200,70,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnFrameClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
 
+            <!-- 背景画框图片 -->
             <Image
-                Source="post.png"
+                Source="picture_in_frame.png"
                 Aspect="AspectFit"
                 HorizontalOptions="End"
                 VerticalOptions="Start"
@@ -194,28 +317,36 @@
                 HeightRequest="70"
                 Grid.Row="0"
                 Grid.Column="2" 
-                 Margin="0,64.3,230,0"/>
-            <!-- 模拟bloodhidden.png图片 -->
+                Margin="0,64.3,230,0"/>
             <Image
-                Source="bloodhidden.png"
+                Source="shelf_picture_fragment.png"
                 Aspect="AspectFit"
                 HorizontalOptions="Start"
-                VerticalOptions="Center"
-                WidthRequest="90" 
-                HeightRequest="90"
-                Grid.Row="4"
-                Grid.Column="0"
-                Margin="40,0,0,0" />
+                VerticalOptions="Start"
+                WidthRequest="15"  
+                HeightRequest="15"
+                Grid.Row="0"
+                Grid.Column="6" 
+                Margin="10,120,170,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPictureCornerClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
+
             <Image
-                Source="page.png"
+                Source="paper.png"
                 Aspect="AspectFill"
                 HorizontalOptions="Start"
                 VerticalOptions="End"
-                WidthRequest="50"
-                HeightRequest="50"
+                WidthRequest="25"
+                HeightRequest="25"
                 Grid.Row="6"
                 Grid.Column="0"
-                Margin="50,0,0,20" />
+                Margin="100,0,0,20">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPaperImageClicked"/>
+                </Image.GestureRecognizers>
+            </Image>
         </Grid>
 
         <Grid Grid.Column="1">
@@ -223,6 +354,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            
+            <!-- 设置按钮 -->
             <Image
                 x:Name="SettingImage"
                 Source="setting.png"
@@ -238,8 +371,9 @@
                 </Image.GestureRecognizers>
             </Image>
 
-            <!-- 使用StackLayout来放置多个inventory.png图片，模拟之前在右下方的布局 -->
+            <!-- 物品栏 -->
             <StackLayout
+                x:Name="InventoryLayout"
                 Orientation="Vertical"
                 HorizontalOptions="End"
                 VerticalOptions="End"
@@ -272,5 +406,26 @@
                     HeightRequest="50" />
             </StackLayout>
         </Grid>
+
+        <!-- 添加提示文本 Label -->
+        <Label 
+            x:Name="FragmentHintLabel"
+            Text=""
+            TextColor="White"
+            FontSize="20"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="End"
+            Margin="0,0,0,50"
+            IsVisible="False"
+            Grid.Column="0"
+            ZIndex="999">
+            <Label.Shadow>
+                <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="4"
+                        Opacity="0.8"/>
+            </Label.Shadow>
+        </Label>
     </Grid>
 </ContentPage>

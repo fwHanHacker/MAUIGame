@@ -24,6 +24,45 @@
     <ShellContent
         ContentTemplate="{DataTemplate views:Room1Wall4}"
         Route="Room1Wall4" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:MoveBooksPuzzle}"
+        Route="MoveBooksPuzzle" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:PaperDisplayPage}"
+        Route="PaperDisplayPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:BoxRiddle}"
+        Route="BoxRiddle" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:PictureDisplayPage}"
+        Route="PictureDisplayPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:SafeDepositBox}"
+        Route="SafeDepositBox" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:CabinettLeftRiddle}"
+        Route="CabinettLeftRiddle" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:CabinettRightRiddle}"
+        Route="CabinettRightRiddle" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:PuzzlePiecesSlove}"
+        Route="PuzzlePiecesSlove" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:BookShelfMove}"
+        Route="BookShelfMove" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:ScalePage}"
+        Route="ScalePage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:LightSwitchPage}"
+        Route="LightSwitchPage" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:ComputerPuzzle}"
+        Route="ComputerPuzzle" />
+    <ShellContent
+        ContentTemplate="{DataTemplate views:ComputerHintPage}"
+        Route="ComputerHintPage" />
 
 
 </Shell>

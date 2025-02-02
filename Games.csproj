@@ -61,11 +61,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <AndroidResource Remove="Data\**" />
 	  <AndroidResource Remove="ViewModels\**" />
+	  <Compile Remove="Data\**" />
 	  <Compile Remove="ViewModels\**" />
+	  <EmbeddedResource Remove="Data\**" />
 	  <EmbeddedResource Remove="ViewModels\**" />
+	  <MauiCss Remove="Data\**" />
 	  <MauiCss Remove="ViewModels\**" />
+	  <MauiXaml Remove="Data\**" />
 	  <MauiXaml Remove="ViewModels\**" />
+	  <None Remove="Data\**" />
 	  <None Remove="ViewModels\**" />
 	</ItemGroup>
 
@@ -78,6 +84,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\PaperDisplayPage.xaml.cs">
+	    <DependentUpon>PaperDisplayPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\SafeDepositBox.xaml.cs">
+	    <DependentUpon>SafeDepositBox.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\StartGamePage.xaml.cs">
 	    <DependentUpon>StartGamePage.xaml</DependentUpon>
 	  </Compile>
@@ -94,6 +106,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Room1Wall1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\BookShelfMove.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

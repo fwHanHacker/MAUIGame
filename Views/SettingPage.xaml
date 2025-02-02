@@ -11,7 +11,7 @@
                 Grid.Column="0"
                 Text="返回"
                 TextColor="White"
-                BackgroundColor="Transparent"
+                BackgroundColor="DarkBlue"
                 FontSize="18"
                 Clicked="OnBackClicked"
                 HorizontalOptions="Start"
